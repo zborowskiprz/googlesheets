@@ -70,16 +70,7 @@ function szablonraportu() {
   var spreadsheet = SpreadsheetApp.getActive();
   var sheet = spreadsheet.getActiveSheet();
   var ui = SpreadsheetApp.getUi();
-  var response = ui.alert('Czy na pewno chcesz wykonać ten skrypt? Wszystkie dane zostaną utracone', ui.ButtonSet.YES_NO);
-  if (response == ui.Button.YES) {
-    // wykonaj akcję
-  } else {
-    return;
-    // anuluj akcję
-  }
-  sheet.getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns()).activate();
-  spreadsheet.getActiveRangeList().clearFormat()
-  .clear({contentsOnly: true, skipFilteredRows: true});
+  apokalipsa();
   spreadsheet.getRange('P1').activate();
   spreadsheet.getCurrentCell().setFormulaR1C1('=ADDRESS(MATCH(MAX(C1:C1);C1:C1;0); 1;1;0)');
   spreadsheet.getRange('P2').activate();
