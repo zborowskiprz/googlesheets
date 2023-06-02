@@ -1,0 +1,16 @@
+function onEdit(e) {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getActiveSheet();
+  const range = e.range;
+  var row = range.getRow();
+  var column = range.getColumn();
+  var wierszstart = sheet.getRange('P2');
+  var wartoscstart = wierszstart.getValue();
+  if (sheet.getName() == sheet.getName() && row >= wartoscstart && column === 6) {
+    var komorka = sheet.getRange('P1');
+    var wartosc = komorka.getValue();
+    spreadsheet.getRange(wartosc).activate();
+    spreadsheet.getCurrentCell().offset(1, 1).activate();
+    nowywiersz();
+  };
+}
